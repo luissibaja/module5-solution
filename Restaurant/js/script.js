@@ -9,9 +9,9 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 		}
 	
 	});
-});
+}); 
 
-(function (global) {
+(function (global) {  
 	var dc = {};
 	var homeHtmlUrl = "snippets/home-snippet.html";
 	var allCategoriesUrl =   "https://davids-restaurant.herokuapp.com/categories.json";
