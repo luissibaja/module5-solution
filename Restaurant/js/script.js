@@ -133,7 +133,8 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	  var randomArrayIndex = Math.floor(Math.random() * categories.length);
 
 	  // return category object with that randomArrayIndex
-	  console.log(categories[randomArrayIndex]);
+	  console.log(categories[randomArrayIndex].short_name);
+
 	  return categories[randomArrayIndex];
 
 	}
