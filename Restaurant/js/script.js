@@ -236,7 +236,6 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
 
 	dc.randomCategoryShortName = function () {
-	  showLoading("#main-content"); //el gif por si hay delay, mostrar algo
 	  $ajaxUtils.sendGetRequest(
 	    allCategoriesUrl,
 	    randomCategoryList); //no se pone true, porque es el default, true convierte json  a objetcs
@@ -248,7 +247,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 		 randomIndex = Math.floor( Math.random() * maxindex); //get a random index according with the maxindex
 		 shortCategory = allCategories[randomIndex].short_name;
 		 console.log(shortCategory); 
-		 shortCategory= 'SP';
+		 shortCategory= 'V';
 		 console.log(shortCategory); 
 		 return shortCategory;
 	}
