@@ -76,13 +76,6 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	});
 
 	// Load the menu categories view
-
-	dc.randomCategoryShortName = function () {
-	  $ajaxUtils.sendGetRequest(
-	    allCategoriesUrl,
-	    randomCategoryList); //no se pone true, porque es el default, true convierte json  a objetcs
-	};
-
 	
 	dc.loadMenuCategories = function () {
 	  showLoading("#main-content"); //el gif por si hay delay, mostrar algo
@@ -99,14 +92,6 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	    buildAndShowMenuItemsHTML);
 	};
 
-
-	//generates a random of the menu category
-	function randomCategoryList(allCategories){
-		 maxindex = allCategories.length -1; //get the max index on categories
-		 randomIndex = Math.floor( Math.random() * maxindex); //get a random index according with the maxindex
-		 shortCategory = allCategories[randomIndex].short_name;
-		 return shortCategory;
-	}
 
 	// Builds HTML for the categories page based on the data
 	// from the server
@@ -248,6 +233,24 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	  html = insertProperty(html, portionPropName, portionValue);
 	  return html;
 	}
+
+	//return a random category
+	dc.randomCategoryShortName = function () {
+	  $ajaxUtils.sendGetRequest(
+	    allCategoriesUrl,
+	    randomCategoryList); //no se pone true, porque es el default, true convierte json  a objetcs
+	};
+
+	//generates a random of the categories
+	function randomCategoryList(allCategories){
+		 /*var maxindex = allCategories.length -1; //get the max index on categories
+		 var randomIndex = Math.floor( Math.random() * maxindex); //get a random index according with the maxindex
+		 var shortCategory = allCategories[randomIndex].short_name;*/
+		 var shortCategory = 'SP';
+		 return shortCategory;
+	}
+	
+
 
 global.$dc = dc; //expose the methods into gloabl object
 
