@@ -74,11 +74,12 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
   		buildAndShowHomeHTML, // ***** <---- TODO: STEP 1: Substitute [...] ******
   		true); // Explicitely setting the flag to get JSON from server processed into an object literal
 
-	/*$ajaxUtils.sendGetRequest(homeHtml,
+		/*$ajaxUtils.sendGetRequest(homeHtml,
 		function (responseText){
 			document.querySelector("#main-content").innerHTML= responseText;
 		},
 		false); //false is not Json*/
+		console.log('done');
 
 	});
 
@@ -98,6 +99,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	      var chosenCategoryShortName = "'" + chooseRandomCategory (categories).short_name + "'";
 		  var homeHtmlToInsertIntoMainPage = homeHtmlUrl;
 		  insertProperty(homeHtmlToInsertIntoMainPage, "randomCategoryShortName", chosenCategoryShortName);
+		  console.log(chosenCategoryShortName);
 		  console.log(homeHtmlToInsertIntoMainPage);
 		  insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
 	      
