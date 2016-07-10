@@ -98,9 +98,9 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
 	      var category = chooseRandomCategory (categoriesJSON);
 	      var chosenCategoryShortName = "'" + category.short_name + "'";
-		  var homeHtmlToInsertIntoMainPage = homeHtml;
-		  insertProperty(homeHtmlToInsertIntoMainPage, "randomCategoryShortName", 'SP');
+		  var homeHtmlToInsertIntoMainPage = insertProperty(homeHtml, "randomCategoryShortName", 'SP');
 		  console.log(chosenCategoryShortName);
+		  console.log(homeHtmlToInsertIntoMainPage);
 		  insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
 	      
 	      // TODO: STEP 3: Substitute {{randomCategoryShortName}} in the home html snippet with the
