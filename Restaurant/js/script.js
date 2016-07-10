@@ -99,7 +99,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	         console.log(categoriesJSON[i]); 
 	  	  }
 
-	      var category = chooseRandomCategory (categories);
+	      var category = chooseRandomCategory (categoriesJSON);
 	      var chosenCategoryShortName = "'" + category.short_name + "'";
 		  var homeHtmlToInsertIntoMainPage = homeHtml;
 		  insertProperty(homeHtmlToInsertIntoMainPage, "randomCategoryShortName", 'SP');
