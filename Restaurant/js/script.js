@@ -79,8 +79,6 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 			document.querySelector("#main-content").innerHTML= responseText;
 		},
 		false); //false is not Json*/
-		console.log('done');
-
 	});
 
 
@@ -95,9 +93,9 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	      // Pay attention to what type of data that function returns vs what the chosenCategoryShortName
 	      // variable's name implies it expects.
 	      // var chosenCategoryShortName = ....
-	      
+	      console.log(categories);
 	      var chosenCategoryShortName = "'" + chooseRandomCategory (categories).short_name + "'";
-		  var homeHtmlToInsertIntoMainPage = homeHtmlUrl;
+		  var homeHtmlToInsertIntoMainPage = homeHtml;
 		  insertProperty(homeHtmlToInsertIntoMainPage, "randomCategoryShortName", chosenCategoryShortName);
 		  console.log(chosenCategoryShortName);
 		  console.log(homeHtmlToInsertIntoMainPage);
