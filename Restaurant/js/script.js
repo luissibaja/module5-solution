@@ -233,6 +233,14 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	  html = insertProperty(html, portionPropName, portionValue);
 	  return html;
 	}
+	
+	//generates a random of the menu category
+	var randomCategoryShortName = function(){
+		 maxindex = categories.length -1; //get the max index on categories
+		 randomIndex = Math.floor( Math.random() * maxindex); //get a random index according with the maxindex
+		 shortCategory = categories[randomIndex].short_name;
+		 return shortCategory;
+	}
 
 global.$dc = dc; //expose the methods into gloabl object
 
