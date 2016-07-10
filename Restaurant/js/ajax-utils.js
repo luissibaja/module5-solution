@@ -15,7 +15,7 @@ function getRequestObject() { //esta funcion no se expone, es privada
   else {
     global.alert("Ajax is not supported!");
     return(null); 
-  }
+  } 
 }
 
 //var request = getRequestObject(); se podrian hacer las variables globales para no pasarlas a las funciones, pero hay que recordar que es ASYNC, mas de una cosa se ejecuta a la vez. 

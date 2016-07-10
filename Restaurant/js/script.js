@@ -67,14 +67,72 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	document.addEventListener("DOMContentLoaded",function (event){
 	// on first load, show home view	
 	//showLoading("#main-content");
-	$ajaxUtils.sendGetRequest(homeHtml,
+
+	showLoading("#main-content");
+	$ajaxUtils.sendGetRequest(
+  		allCategoriesUrl, 
+  		buildAndShowHomeHTML, // ***** <---- TODO: STEP 1: Substitute [...] ******
+  		true); // Explicitely setting the flag to get JSON from server processed into an object literal
+
+	/*$ajaxUtils.sendGetRequest(homeHtml,
 		function (responseText){
 			document.querySelector("#main-content").innerHTML= responseText;
 		},
-		false); //false is not Json
+		false); //false is not Json*/
 
 	});
 
+
+	function buildAndShowHomeHTML (categories) {
+  
+	  // Load home snippet page
+	  $ajaxUtils.sendGetRequest(
+	    homeHtmlUrl,
+	    function (homeHtml) {
+
+	      // TODO: STEP 2: Here, call chooseRandomCategory, passing it retrieved 'categories'
+	      // Pay attention to what type of data that function returns vs what the chosenCategoryShortName
+	      // variable's name implies it expects.
+	      // var chosenCategoryShortName = ....
+	      
+	      var chosenCategoryShortName = "'" + chooseRandomCategory (categories).short_name "'";
+		  var homeHtmlToInsertIntoMainPage = homeHtml;
+		  insertProperty(homeHtmlToInsertIntoMainPage, "randomCategoryShortName", chosenCategoryShortName);
+		  
+		  insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
+	      
+	      // TODO: STEP 3: Substitute {{randomCategoryShortName}} in the home html snippet with the
+	      // chosen category from STEP 2. Use existing insertProperty function for that purpose.
+	      // Look through this code for an example of how to do use the insertProperty function.
+	      // WARNING! You are inserting something that will have to result in a valid Javascript
+	      // syntax because the substitution of {{randomCategoryShortName}} becomes an argument
+	      // being passed into the $dc.loadMenuItems function. Think about what that argument needs
+	      // to look like. For example, a valid call would look something like this:
+	      // $dc.loadMenuItems('L')
+	      // Hint: you need to surround the chosen category short name with something before inserting
+	      // it into the home html snippet.
+	      // 
+	      // var homeHtmlToInsertIntoMainPage = ....
+	      
+
+	      // TODO: STEP 4: Insert the the produced HTML in STEP 3 into the main page
+	      // Use the existing insertHtml function for that purpose. Look through this code for an example
+	      // of how to do that. 
+	      // ....
+	      
+	    },
+	    false); // False here because we are getting just regular HTML from the server, so no need to process JSON.
+	}
+
+
+	// Given array of category objects, returns a random category object.
+	function chooseRandomCategory (categories) {
+	  // Choose a random index into the array (from 0 inclusively until array length (exclusively))
+	  var randomArrayIndex = Math.floor(Math.random() * categories.length);
+
+	  // return category object with that randomArrayIndex
+	  return categories[randomArrayIndex];
+	}
 	// Load the menu categories view
 	
 	dc.loadMenuCategories = function () {
@@ -85,7 +143,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	};
 	// Load the menu items view
 	// 'categoryShort' is a short_name for a category
-	dc.loadMenuItems_old = function (categoryShort) {
+	dc.loadMenuItems = function (categoryShort) {
 	  showLoading("#main-content");
 	  $ajaxUtils.sendGetRequest(
 	    menuItemsUrl + categoryShort,
@@ -93,21 +151,16 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	};
 
 	
-	dc.loadMenuItems = function (categoryShort) { //modified to ignore the parameter since the home-snipped.html cannot be modified
-	  showLoading("#main-content");
-	  
-	  //get all categories to pick one random 
-	  $ajaxUtils.sendGetRequest( 
-	      allCategoriesUrl, 
-	      randomCategoryList); //no se pone true, porque es el default, true convierte json  a objetcs
-	};
-
 		//generates a random of the categories
 	function randomCategoryList(allCategories){
 		 var maxindex = allCategories.length -1; //get the max index on categories
 		 var randomIndex = Math.floor( Math.random() * maxindex); //get a random index according with the maxindex
 		 var shortCategory = allCategories[randomIndex].short_name;
 		 console.log(shortCategory);
+		 $ajaxUtils.sendGetRequest(  
+	      allCategoriesUrl, 
+	      randomCategoryList); //no se pone true, porque es el default, true convierte json  a objetcs
+
 		 $ajaxUtils.sendGetRequest(
 	     menuItemsUrl + shortCategory,
 	     buildAndShowMenuItemsHTML);
