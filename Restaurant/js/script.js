@@ -198,6 +198,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	  finalHtml += "<section class='row'>";
 
 	  // Loop over categories
+	  	  console.log(categories.length);
 	  for (var i = 0; i < categories.length; i++) {
 	    // Insert category values
 	    var html = categoryHtml;
