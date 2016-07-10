@@ -237,11 +237,11 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
 	//return a random category
 	dc.randomCategoryShortName = function () {
-	  $ajaxUtils.sendGetRequest(
+	   RandomCategory = $ajaxUtils.sendGetRequest(
 	    allCategoriesUrl,
 	    randomCategoryList); //no se pone true, porque es el default, true convierte json  a objetcs
-		console.log(dc.RandomCategory);
-		return dc.RandomCategory;
+		console.log(RandomCategory);
+		return RandomCategory;
 
 	};
 
@@ -250,7 +250,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 		 var maxindex = allCategories.length -1; //get the max index on categories
 		 var randomIndex = Math.floor( Math.random() * maxindex); //get a random index according with the maxindex
 		 var shortCategory = allCategories[randomIndex].short_name;
-		 dc.RandomCategory = shortCategory;
+		 return shortCategory;
 	}
 	
 
