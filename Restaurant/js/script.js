@@ -20,6 +20,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	var menuItemsUrl =  "https://davids-restaurant.herokuapp.com/menu_items.json?category=";
 	var menuItemsTitleHtml = "snippets/menu-items-title.html";
 	var menuItemHtml = "snippets/menu-item.html";
+	var RandomCategory = 'SP';
 		
 
 	//Convenience function for inserting innerHTML for 'select'
@@ -239,16 +240,18 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	  $ajaxUtils.sendGetRequest(
 	    allCategoriesUrl,
 	    randomCategoryList); //no se pone true, porque es el default, true convierte json  a objetcs
+	  		 var shortCategory = 'SP'; 
+		console.log(RandomCategory);
+		return RandomCategory;
+
 	};
 
 	//generates a random of the categories
 	function randomCategoryList(allCategories){
-		 /*var maxindex = allCategories.length -1; //get the max index on categories
+		 var maxindex = allCategories.length -1; //get the max index on categories
 		 var randomIndex = Math.floor( Math.random() * maxindex); //get a random index according with the maxindex
-		 var shortCategory = allCategories[randomIndex].short_name;*/
-		 var shortCategory = 'SP';
-		 console.log(shortCategory);
-		 return shortCategory;
+		 var shortCategory = allCategories[randomIndex].short_name;
+		 RandomCategory = shortCategory;
 	}
 	
 
