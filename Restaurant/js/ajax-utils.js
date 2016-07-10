@@ -32,6 +32,16 @@ ajaxUtils.sendGetRequest =  //esta funcion es publica, pues se agrega a ajaxUtil
     request.send(null); //  ejecuta el request, null para GET, cuando es post los parametros del resquestURL deben ser pasados aqui en string o como objeto
   }; //tiene un punto y comoa y no un (), pues es solo la definicion de la funcion
 
+ajaxUtils.sendGetRequestSync =  //esta funcion es publica, pues se agrega a ajaxUtils
+  function(requestUrl, responseHandler,isJsonResponse) { //requestURL es el server que le voy a pedir data, responseHandler es un puntero a quien va a manjejar la respuesta del server, se le agrega un parametro isJsonresponse para saber si se pide o no JSON
+    var request = getRequestObject(); //Funcion descrita anteriormente new XMLHttpRequest()
+    request.onreadystatechange =  //se crea una funcion que revisa el estado de la comunicacion entre el browser y el server, se llama cada vez que pasa algo en la comunicacion
+      function() { //cuando server envia la respuesta, esta es la funcion que se llama
+        handleResponse(request, responseHandler,isJsonResponse); // se llama la funcion que procesa la respuesta
+      };
+    request.open("GET", requestUrl, false); // que metodo, en este caso GET, se le pasa el URL, y true, si se pasa false, se vuelve syncrono, es decir espera hasta que le responda el server
+    request.send(null); //  ejecuta el request, null para GET, cuando es post los parametros del resquestURL deben ser pasados aqui en string o como objeto
+  }; //tiene un pu
 
 // Only calls user provided 'responseHandler'
 // function if response is ready
