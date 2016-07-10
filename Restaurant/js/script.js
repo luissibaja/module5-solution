@@ -251,7 +251,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 		 console.log(shortCategory); 
 		 return shortCategory;
 	}
-
+ 
 
 global.$dc = dc; //expose the methods into gloabl object
 
