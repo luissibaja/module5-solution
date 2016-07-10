@@ -85,12 +85,35 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	};
 	// Load the menu items view
 	// 'categoryShort' is a short_name for a category
-	dc.loadMenuItems = function (categoryShort) {
+	dc.loadMenuItems_old = function (categoryShort) {
 	  showLoading("#main-content");
 	  $ajaxUtils.sendGetRequest(
 	    menuItemsUrl + categoryShort,
 	    buildAndShowMenuItemsHTML);
 	};
+
+	
+	dc.loadMenuItems = function (categoryShort) { //modified to ignore the parameter since the home-snipped.html cannot be modified
+	  showLoading("#main-content");
+	  
+	  //get all categories to pick one random 
+	  $ajaxUtils.sendGetRequest( 
+	      allCategoriesUrl, 
+	      randomCategoryList); //no se pone true, porque es el default, true convierte json  a objetcs
+	};
+
+		//generates a random of the categories
+	function randomCategoryList(allCategories){
+		 var maxindex = allCategories.length -1; //get the max index on categories
+		 var randomIndex = Math.floor( Math.random() * maxindex); //get a random index according with the maxindex
+		 var shortCategory = allCategories[randomIndex].short_name;
+		 console.log(shortCategory);
+		 $ajaxUtils.sendGetRequest(
+	     menuItemsUrl + shortCategory,
+	     buildAndShowMenuItemsHTML);
+	}
+
+
 
 
 	// Builds HTML for the categories page based on the data
@@ -234,26 +257,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	  return html;
 	}
 
-	//return a random category
-	dc.randomCategoryShortName = function () {
-		var shortCategory = $ajaxUtils.sendGetRequestSync( 
-	      allCategoriesUrl, 
-	      randomCategoryList); //no se pone true, porque es el default, true convierte json  a objetcs
-		console.log(shortCategory);
-		return shortCategory;
 
-
-	};
-
-	//generates a random of the categories
-	function randomCategoryList(allCategories){
-		 var maxindex = allCategories.length -1; //get the max index on categories
-		 var randomIndex = Math.floor( Math.random() * maxindex); //get a random index according with the maxindex
-		 var shortCategory = allCategories[randomIndex].short_name;
-		 console.log(shortCategory);
-		 return shortCategory;
-	}
-	
 
 
 global.$dc = dc; //expose the methods into gloabl object
