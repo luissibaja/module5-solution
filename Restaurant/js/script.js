@@ -94,6 +94,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	      // variable's name implies it expects.
 	      // var chosenCategoryShortName = ....
 	      var category = chooseRandomCategory (categories);
+	      console.log(categories);
 	      var chosenCategoryShortName = "'" + category.short_name + "'";
 		  var homeHtmlToInsertIntoMainPage = homeHtml;
 		  insertProperty(homeHtmlToInsertIntoMainPage, "randomCategoryShortName", 'SP');
