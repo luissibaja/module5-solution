@@ -234,9 +234,25 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	  return html;
 	}
 
+
 	dc.randomCategoryShortName = function () {
-		return 'SP';
+	  showLoading("#main-content"); //el gif por si hay delay, mostrar algo
+	  $ajaxUtils.sendGetRequest(
+	    allCategoriesUrl,
+	    randomCategoryList); //no se pone true, porque es el default, true convierte json  a objetcs
 	};
+
+	//generates a random of the menu category
+	randomCategoryList = function(allCategories){
+		 maxindex = categories.length -1; //get the max index on categories
+		 randomIndex = Math.floor( Math.random() * maxindex); //get a random index according with the maxindex
+		 shortCategory = allCategories[randomIndex].short_name;
+		 console.log(shortCategory); 
+		 shortCategory= 'SP';
+		 console.log(shortCategory); 
+		 return shortCategory;
+	}
+
 
 global.$dc = dc; //expose the methods into gloabl object
 
