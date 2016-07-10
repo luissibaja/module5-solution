@@ -93,6 +93,11 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	      // Pay attention to what type of data that function returns vs what the chosenCategoryShortName
 	      // variable's name implies it expects.
 	      // var chosenCategoryShortName = ....
+
+		  for (var i = 0; i < categories.length; i++) {
+	         console.log(categories[i]);
+	  	  }
+
 	      var category = chooseRandomCategory (categories);
 	      var chosenCategoryShortName = "'" + category.short_name + "'";
 		  var homeHtmlToInsertIntoMainPage = homeHtml;
@@ -134,9 +139,10 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	  console.log(Math.random() );
 
 	  // return category object with that randomArrayIndex
-	  console.log(categories);
+	  /*console.log(categories);
 	  console.log(randomArrayIndex);
 	  console.log(categories[randomArrayIndex].short_name);
+      */
 
 	  return categories[randomArrayIndex];
 
@@ -197,7 +203,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	  finalHtml += "<section class='row'>";
 
 	  // Loop over categories
-	  	  console.log(categories.length);
+	  	  
 	  for (var i = 0; i < categories.length; i++) {
 	    // Insert category values
 	    var html = categoryHtml;
