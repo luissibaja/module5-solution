@@ -150,24 +150,6 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	    buildAndShowMenuItemsHTML);
 	};
 
-	
-		//generates a random of the categories
-	function randomCategoryList(allCategories){
-		 var maxindex = allCategories.length -1; //get the max index on categories
-		 var randomIndex = Math.floor( Math.random() * maxindex); //get a random index according with the maxindex
-		 var shortCategory = allCategories[randomIndex].short_name;
-		 console.log(shortCategory);
-		 $ajaxUtils.sendGetRequest(  
-	      allCategoriesUrl, 
-	      randomCategoryList); //no se pone true, porque es el default, true convierte json  a objetcs
-
-		 $ajaxUtils.sendGetRequest(
-	     menuItemsUrl + shortCategory,
-	     buildAndShowMenuItemsHTML);
-	}
-
-
-
 
 	// Builds HTML for the categories page based on the data
 	// from the server
