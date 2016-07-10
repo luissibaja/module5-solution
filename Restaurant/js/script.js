@@ -96,7 +96,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
 		  var categoriesJSON = JSON.parse(categories);
 		  for (var i = 0; i < categoriesJSON.length; i++) {
-	         console.log(categoriesJSON[i]);
+	         console.log(categoriesJSON[i]); 
 	  	  }
 
 	      var category = chooseRandomCategory (categories);
