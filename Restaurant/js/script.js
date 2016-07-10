@@ -98,7 +98,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	      var chosenCategoryShortName = "'" + chooseRandomCategory (categories).short_name + "'";
 		  var homeHtmlToInsertIntoMainPage = homeHtmlUrl;
 		  insertProperty(homeHtmlToInsertIntoMainPage, "randomCategoryShortName", chosenCategoryShortName);
-		  
+		  console.log(homeHtmlToInsertIntoMainPage);
 		  insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
 	      
 	      // TODO: STEP 3: Substitute {{randomCategoryShortName}} in the home html snippet with the
