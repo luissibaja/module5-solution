@@ -94,8 +94,9 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	      // variable's name implies it expects.
 	      // var chosenCategoryShortName = ....
 
-		  for (var i = 0; i < categories.length; i++) {
-	         console.log(categories[i]);
+		  var categoriesJSON = JSON.parse(string);
+		  for (var i = 0; i < categoriesJSON.length; i++) {
+	         console.log(categoriesJSON[i]);
 	  	  }
 
 	      var category = chooseRandomCategory (categories);
