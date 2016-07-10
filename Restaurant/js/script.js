@@ -234,6 +234,10 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	  return html;
 	}
 
+	dc.randomCategoryShortName = function () {
+		return 'SP';
+	};
+
 global.$dc = dc; //expose the methods into gloabl object
 
 })(window);
