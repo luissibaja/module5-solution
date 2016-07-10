@@ -94,18 +94,13 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	      // variable's name implies it expects.
 	      // var chosenCategoryShortName = ....
 
-		  var categoriesJSON = JSON.parse(categories);
-		  for (var i = 0; i < categoriesJSON.length; i++) {
-	         console.log(categoriesJSON[i]); 
-	  	  }
+		  var categoriesJSON = JSON.parse(categories); //I don't know why but this is necessary since categories is a string 
 
 	      var category = chooseRandomCategory (categoriesJSON);
 	      var chosenCategoryShortName = "'" + category.short_name + "'";
 		  var homeHtmlToInsertIntoMainPage = homeHtml;
 		  insertProperty(homeHtmlToInsertIntoMainPage, "randomCategoryShortName", 'SP');
-		  
-	
-		  console.log(homeHtmlToInsertIntoMainPage);
+		  console.log(chosenCategoryShortName);
 		  insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
 	      
 	      // TODO: STEP 3: Substitute {{randomCategoryShortName}} in the home html snippet with the
@@ -136,15 +131,6 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	function chooseRandomCategory (categories) {
 	  // Choose a random index into the array (from 0 inclusively until array length (exclusively))
 	  var randomArrayIndex = Math.floor(Math.random() * categories.length);
-	  console.log(Object.keys(categories).length);
-	  console.log(Math.random() );
-
-	  // return category object with that randomArrayIndex
-	  /*console.log(categories);
-	  console.log(randomArrayIndex);
-	  console.log(categories[randomArrayIndex].short_name);
-      */
-
 	  return categories[randomArrayIndex];
 
 	}
