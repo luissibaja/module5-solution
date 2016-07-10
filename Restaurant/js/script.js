@@ -250,6 +250,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 		 var maxindex = allCategories.length -1; //get the max index on categories
 		 var randomIndex = Math.floor( Math.random() * maxindex); //get a random index according with the maxindex
 		 var shortCategory = allCategories[randomIndex].short_name;
+		 console.log(shortCategory);
 		 return shortCategory;
 	}
 	
