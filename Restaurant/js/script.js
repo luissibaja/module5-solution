@@ -98,7 +98,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 		  var homeHtmlToInsertIntoMainPage = homeHtml;
 		  insertProperty(homeHtmlToInsertIntoMainPage, "randomCategoryShortName", 'SP');
 		  
-		  console.log(chosenCategoryShortName);
+		  console.log(category);
 		  console.log(homeHtmlToInsertIntoMainPage);
 		  insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
 	      
