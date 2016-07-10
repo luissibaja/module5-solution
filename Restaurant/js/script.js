@@ -82,7 +82,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	});
 
 
-	function buildAndShowHomeHTML (categories) {
+	function buildAndShowHomeHTML(categories) {
   
 	  // Load home snippet page
 	  $ajaxUtils.sendGetRequest(
@@ -94,7 +94,6 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	      // variable's name implies it expects.
 	      // var chosenCategoryShortName = ....
 	      var category = chooseRandomCategory (categories);
-	  		console.log(category);
 	      var chosenCategoryShortName = "'" + category.short_name + "'";
 		  var homeHtmlToInsertIntoMainPage = homeHtml;
 		  insertProperty(homeHtmlToInsertIntoMainPage, "randomCategoryShortName", 'SP');
@@ -131,7 +130,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	function chooseRandomCategory (categories) {
 	  // Choose a random index into the array (from 0 inclusively until array length (exclusively))
 	  var randomArrayIndex = Math.floor(Math.random() * categories.length);
-	  console.log(categories.length);
+	  console.log(Object.keys(categories).length);
 	  console.log(Math.random() );
 
 	  // return category object with that randomArrayIndex
