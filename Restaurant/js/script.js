@@ -240,7 +240,6 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	  $ajaxUtils.sendGetRequest(
 	    allCategoriesUrl,
 	    randomCategoryList); //no se pone true, porque es el default, true convierte json  a objetcs
-	  		 var shortCategory = 'SP'; 
 		console.log(RandomCategory);
 		return RandomCategory;
 
