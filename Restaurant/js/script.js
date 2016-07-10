@@ -13,7 +13,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
 (function (global) {
 	var dc = {};
-	var homeHtml = "snippets/home-snippet.html";
+	var homeHtmlUrl = "snippets/home-snippet.html";
 	var allCategoriesUrl =   "https://davids-restaurant.herokuapp.com/categories.json";
 	var categoriesTitleHtml = "snippets/categories-title-snippet.html";
 	var categoryHtml = "snippets/category-snippet.html";
@@ -96,7 +96,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 	      // var chosenCategoryShortName = ....
 	      
 	      var chosenCategoryShortName = "'" + chooseRandomCategory (categories).short_name + "'";
-		  var homeHtmlToInsertIntoMainPage = homeHtml;
+		  var homeHtmlToInsertIntoMainPage = homeHtmlUrl;
 		  insertProperty(homeHtmlToInsertIntoMainPage, "randomCategoryShortName", chosenCategoryShortName);
 		  
 		  insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
